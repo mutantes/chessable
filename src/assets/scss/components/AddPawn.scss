@@ -1,0 +1,18 @@
+.add-pawn {
+    background: none;
+    border: 2px solid #eee;
+    padding: 12px 30px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    color: #eee;
+    transition: all 200ms ease-in-out;
+    cursor: pointer;
+    font-weight: bold;
+
+    &:hover {
+        background-color: #eee;
+        color: #4b5863;
+        box-shadow:  3px 3px 20px #30383f,
+        -3px -3px 20px #424e58,
+    }
+}

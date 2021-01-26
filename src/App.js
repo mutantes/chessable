@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Chessboard from "./components/Chessboard.js";
+import AddPawn from "./components/AddPawn";
+
+import ProcessFEN from "./helpers/ProcessFEN";
+import { ChessboardContext } from "./helpers/ChessboardContext";
+
+import "./assets/scss/utils/reset.scss";
+import "./assets/scss/App.scss";
 
 function App() {
+  const chessboardStatus = ProcessFEN("8/2p5/8/8/8/8/8/8");
+  const [context, setContext] = useState(chessboardStatus);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ChessboardContext.Provider value={[context, setContext]}>
+      <Chessboard />
+      <AddPawn />
+    </ChessboardContext.Provider>
   );
 }
 
